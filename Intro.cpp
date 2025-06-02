@@ -17,8 +17,15 @@ class Hero{
         return level;
     }
 
-    void setHealth(int h){
-        health = h;
+    // i want that health is set by ramesh father suresh only
+    void setHealth(int h, string name){ 
+        if(name == "suresh"){
+            health = h;
+            cout << "Done" << endl;
+        }
+        else{
+            cout << "Please contact ramesh father to set health!" << endl;;
+        }
     }
 
     void setLevel(char ch){
@@ -30,7 +37,7 @@ int main(){
     // creating object
     Hero ramesh;
 
-    ramesh.setHealth(70);
+    ramesh.setHealth(70, "suresh");
     cout << "Ramesh health is " << ramesh.getHealth() << endl;
 
     ramesh.setLevel('a');
