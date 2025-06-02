@@ -2,17 +2,43 @@
 using namespace std;
 
 class Hero{
-
     // properties
-    int age;
-    int name;
+    private:
+    int health;
+
+    public:
+    char level;
+
+    int getHealth(){
+        return health;
+    }
+
+    char getLevel(){
+        return level;
+    }
+
+    void setHealth(int h){
+        health = h;
+    }
+
+    void setLevel(char ch){
+        level = ch;
+    }
 };
 
 int main(){
     // creating object
-    Hero h1;
+    Hero ramesh;
 
-    cout << "Size : " << sizeof(h1) << endl;
+    ramesh.setHealth(70);
+    cout << "Ramesh health is " << ramesh.getHealth() << endl;
+
+    ramesh.setLevel('a');
+    cout << "Ramesh level is  : " << ramesh.getLevel() << endl; 
+
+    // cout << "Size : " << sizeof(h1) << endl;
+
+
 
 
 }
