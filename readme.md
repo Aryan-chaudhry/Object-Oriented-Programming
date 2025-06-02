@@ -5,6 +5,111 @@
 Object is an entity which have two things its state/Property and its behaviour
 and, object is an instance of class
 
+if we create object using static allocation, for access we use 
+```.``` operator
+
+if we create object using  dynamic allocation, for access we use 
+1. (*) de refernce operator
+2. (->) 
+
+### Behind the scene when create an object
+
+whenever we create an object, 1st of all one thing is called constructor means it will called like ```ramesh.Hero()``` 
+
+So when ever you write a class then by default a constructor is created by class name (also known as default constructor)
+
+### Constructor 
+
+1. it invoke at a time of object creation
+2. it have no return type
+3. it have same name as of class
+
+The constructor are of 3 type
+1. defualt constructor
+
+A default constructor is a type of constructor which does not contain any arguments
+
+syntax
+``` classname(){} ```
+
+2. parametrised constructor
+
+A parametrised constructor is a type of construtor where we pass arguments to constructor
+
+syntax
+``` classname(datatype p1, dataptype p2 , ..){}```
+
+Brainstrome Example
+
+```
+1 int health;
+2
+3   classname(int health){
+4        health = health;
+5    } 
+```
+by seeing this example it is clearly visible that line 3 argument "health" reinitialize itself in line 4
+
+but we want that variable in line 1 will assign value of health argument of line 3 in line 4
+
+so when ever our variable and argument name is same and to avoid
+problem like we see above we use a keyword known as ```this``` keyword
+
+this keyword
+
+this is a pointer which always point to current object 
+if object create statically use ```.```
+if object create dynamically use ```->```
+correct example
+
+```
+1 int health;
+2
+3   classname(int health){
+4        this -> health = health;
+5    } 
+```
+
+3. copy constructor
+
+ A copy constructor is a special constructor which is used to create a new object as a copy of an existing object.
+A default copy constructor do shallow copy
+ when you write a class an inbuild copy constructor generate automatically
+
+  ```
+  class Hero{ 
+    public:
+
+    Hero(Hero& temp){
+        this -> health = temp.health;
+        this -> level = temp.level;
+    }
+  }
+
+    int main(){
+        Hero R(ramesh);
+    }
+
+  ```
+
+  why use & --> becuase if we dont add & than temp is a copy of ramesh and when we try to make copy , then you call copy constructor and this is a copy constructor again we come to temp than copy will formed here, so we trapped in infinite loop(making copy of copy constructor )
+
+  so never pass by value
+  temp  <----> R
+
+  always pass by reference
+  [temp, ramesh] it is same
+
+### Shallow and deep copy
+
+shallow copy : shalow copy copies the onject but shares the same memmory
+
+### Behind the scene when clear an object
+
+deep copy : deep copy copies the object and shares different memmory
+
+when we clear an object its constructor also get deleted and never called until new object is created.
+
 ## class :
 
 class is user defined data type 
@@ -116,3 +221,6 @@ Note: if you dont mention any access modifier in the class by default it is priv
 ## Getter/Setter
 
 we can not access private member of a class, to acces them we use getter and setter function within a class because they access private member and we easliy access getter and setter function which is public in nature.
+
+
+## copy Assignment Operator
