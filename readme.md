@@ -110,6 +110,19 @@ deep copy : deep copy copies the object and shares different memmory
 
 when we clear an object its constructor also get deleted and never called until new object is created.
 
+## Destructor
+
+When class is created distructor also created automatically.
+we can also create distructor 
+
+same name as class
+no parameter
+no return type
+but distructor write with ```~```
+
+destructor called automatically for statically created object
+but destructor did not called automatically for dynamically created object - so call manually
+
 ## class :
 
 class is user defined data type 
@@ -224,3 +237,33 @@ we can not access private member of a class, to acces them we use getter and set
 
 
 ## copy Assignment Operator
+
+this is copy assignment operator ``` = ```
+copy assignmnet operator is used to assign the value of one object to another object.  
+
+
+# Some important concept
+
+## const keyword how it use in object creation
+## const fucntion
+## what is initialization list
+
+
+
+## static Keyword
+
+static keyword create data member,functions which belong to class and to access them we dont need to create object 
+always initialize static datamemer outside the class 
+
+Syntax
+``` datatype classname :: feildname = value```
+
+### static function
+
+static function is also created with static keyword
+it does not have this keyword, static function can access only static members
+
+  why static function does not have this keyword
+
+  becuase this keyword is pointer to currect object but static data member, function do not contain any object that's why static function or static data members does not have thus keyword
+

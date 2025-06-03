@@ -9,6 +9,7 @@ class Hero{
     public:
     char *name;
     char level;
+    static int timeTocomplete;
 
     // defualt constructor
     Hero(){
@@ -33,6 +34,11 @@ class Hero{
     //     this -> level = temp.level;
     // }
 
+    // destructor
+    ~Hero(){
+        cout << "Distructor called";
+    }
+
 
     int getHealth(){
         return health;
@@ -55,6 +61,11 @@ class Hero{
     void setName(char name[]){
         strcpy(this -> name, name);
     }
+    
+    static int random(){
+        return timeTocomplete;
+    }
+
     void print(){
         cout << " [ Name: " << this -> name << ", ";
         cout << "health: " << this -> health << ", ";
@@ -63,25 +74,36 @@ class Hero{
     }
 };
 
+int Hero :: timeTocomplete = 5;
+
 int main(){
 
-    Hero hero1;
 
-    hero1.setHealth(12);
-    hero1.setLevel('D');
-    char name[6] = "Aryan";
+    cout << Hero :: timeTocomplete << endl;
+    cout << Hero :: random() << endl;
 
-    hero1.setName(name);
+    // Hero a;
+    // // Hero hero1;
 
-    hero1.print();
+    // Hero *b = new Hero();
 
-    Hero hero2(hero1);
-    hero2.print();
+    // delete b;
 
-    hero1.name[1] = 'y';
-    hero1.print();
+    // hero1.setHealth(12);
+    // hero1.setLevel('D');
+    // char name[6] = "Aryan";
 
-    hero2.print();
+    // hero1.setName(name);
+
+    // hero1.print();
+
+    // Hero hero2(hero1);
+    // hero2.print();
+
+    // hero1.name[1] = 'y';
+    // hero1.print();
+
+    // hero2.print();
 
 
     // Hero ramesh(70, 'C');
