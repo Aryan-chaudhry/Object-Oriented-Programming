@@ -10,6 +10,8 @@ class Hero{
     char *name;
     char level;
     static int timeTocomplete;
+    const int quality = 1080;
+    
 
     // defualt constructor
     Hero(){
@@ -82,7 +84,10 @@ int main(){
     cout << Hero :: timeTocomplete << endl;
     cout << Hero :: random() << endl;
 
-    // Hero a;
+
+
+     Hero a;
+     
     // // Hero hero1;
 
     // Hero *b = new Hero();

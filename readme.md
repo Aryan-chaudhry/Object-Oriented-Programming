@@ -58,8 +58,7 @@ problem like we see above we use a keyword known as ```this``` keyword
 this keyword
 
 this is a pointer which always point to current object 
-if object create statically use ```.```
-if object create dynamically use ```->```
+
 correct example
 
 ```
@@ -245,6 +244,11 @@ copy assignmnet operator is used to assign the value of one object to another ob
 # Some important concept
 
 ## const keyword how it use in object creation
+
+const keyword is used to declare constant and prevent modification of variable, function, return types, class method etc
+
+const keyword always initialize at time of declaration
+
 ## const fucntion
 ## what is initialization list
 
@@ -267,3 +271,41 @@ it does not have this keyword, static function can access only static members
 
   becuase this keyword is pointer to currect object but static data member, function do not contain any object that's why static function or static data members does not have thus keyword
 
+
+
+# 4 pillars of OOPS
+
+1. Encapsulation
+
+
+Rapping up data members and function in single unit is known as Encapsulation.
+
+it is Information/data Hiding.
+
+Fully Encapsulated Class :- 
+
+Fully Encapsulated class is a class in which all data members are marked private
+
+Why we are doing Encapsulation?
+
+1. we can hide data, info of our class, so security level increase
+
+2. if we want we can make class read only(use getter function)
+
+3. Code reusability
+
+4. Unit code is better for unit testing
+
+2. Inheritance
+
+When a class inherit the properties on another class this concept is known as inheritance
+There are  typpes of inheritance
+
+1. Single level
+2. multilevel
+3. multiple
+4. hyrarichal
+5. hybrid
+
+3. Abstraction
+4. Polymorphism
