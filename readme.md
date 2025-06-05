@@ -4,10 +4,8 @@
 
 Object is an entity which have two things its state/Property and its behaviour
 and, object is an instance of class
-
 if we create object using static allocation, for access we use 
 ```.``` operator
-
 if we create object using  dynamic allocation, for access we use 
 1. (*) de refernce operator
 2. (->) 
@@ -15,7 +13,6 @@ if we create object using  dynamic allocation, for access we use
 ### Behind the scene when create an object
 
 whenever we create an object, 1st of all one thing is called constructor means it will called like ```ramesh.Hero()``` 
-
 So when ever you write a class then by default a constructor is created by class name (also known as default constructor)
 
 ### Constructor 
@@ -35,7 +32,6 @@ syntax
 2. parametrised constructor
 
 A parametrised constructor is a type of construtor where we pass arguments to constructor
-
 syntax
 ``` classname(datatype p1, dataptype p2 , ..){}```
 
@@ -49,7 +45,6 @@ Brainstrome Example
 5    } 
 ```
 by seeing this example it is clearly visible that line 3 argument "health" reinitialize itself in line 4
-
 but we want that variable in line 1 will assign value of health argument of line 3 in line 4
 
 so when ever our variable and argument name is same and to avoid
@@ -125,18 +120,12 @@ but destructor did not called automatically for dynamically created object - so 
 ## class :
 
 class is user defined data type 
-
-
 We can access the property of class using ```.``` Operator
-
-
 
 ### Brainstrome concept of class
 
 no of properties in a class == size of class
-
 if class contain 2 member one it int and second is char than size of clas so object comes to be 5 but why come 8? (You can try it)
-
 its simple logic it padding and greedy alignment
 
 # 📘 Understanding Padding and Greedy Alignment in C++
@@ -204,7 +193,6 @@ Note : What is the size of class object? if there is no property in a class?
 Ans: 1 byte memmory is allocated to object --> If there is no property present in a class than to keep track of class it will give 1 byte size 
 
 Can we can create a class in different file  and access that in another file?
-
 yes: Using ```#include"File_name";```
 
 
@@ -246,7 +234,6 @@ copy assignmnet operator is used to assign the value of one object to another ob
 ## const keyword how it use in object creation
 
 const keyword is used to declare constant and prevent modification of variable, function, return types, class method etc
-
 const keyword always initialize at time of declaration
 
 ## const fucntion
@@ -279,33 +266,25 @@ it does not have this keyword, static function can access only static members
 
 
 Rapping up data members and function in single unit is known as Encapsulation.
-
 it is Information/data Hiding.
 
 Fully Encapsulated Class :- 
-
 Fully Encapsulated class is a class in which all data members are marked private
 
 Why we are doing Encapsulation?
 
 1. we can hide data, info of our class, so security level increase
-
 2. if we want we can make class read only(use getter function)
-
 3. Code reusability
-
 4. Unit code is better for unit testing
 
 ## 2. Inheritance
 
 When a class inherit the properties on another class this concept is known as inheritance
 
-
-
 There are 5 types of inheritance
 
-1. Single level
-
+1. Single level:- 
 When a child class inherit the property of parent class than it is known as Single level Inheritance.
 
 2. multilevel
