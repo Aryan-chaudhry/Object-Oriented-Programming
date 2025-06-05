@@ -299,10 +299,25 @@ Why we are doing Encapsulation?
 2. Inheritance
 
 When a class inherit the properties on another class this concept is known as inheritance
-There are  typpes of inheritance
+
+## Mode of Inheritance in C++
+
+| Inheritance Type        | Syntax                                | Access Level in Derived Class                           | Description                                                                 |
+|-------------------------|----------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------|
+| **Public Inheritance**  | `class Derived : public Base`          | Public → Public<br>Protected → Protected<br>Private → Not Inherited | Represents an "is-a" relationship. Most commonly used.                     |
+| **Protected Inheritance** | `class Derived : protected Base`     | Public → Protected<br>Protected → Protected<br>Private → Not Inherited | Base members become less accessible; used for internal implementation.     |
+| **Private Inheritance** | `class Derived : private Base`         | Public → Private<br>Protected → Private<br>Private → Not Inherited | Strong encapsulation. Inherited members are not accessible to outside classes. |
+
+
+There are 5 types of inheritance
 
 1. Single level
+
+When a child class inherit the property of parent class than it is known as Single level Inheritance.
+
 2. multilevel
+
+
 3. multiple
 4. hyrarichal
 5. hybrid
