@@ -284,15 +284,46 @@ When a class inherit the properties on another class this concept is known as in
 
 There are 5 types of inheritance
 
-1. Single level:- 
+### 1. Single level:- 
 When a child class inherit the property of parent class than it is known as Single level Inheritance.
 
-2. multilevel
+### 2. multilevel
+
+when a child class inherit the property of parent class, where child class also act as parent class for another child class.
+
+### 3. multiple
+
+When a child class inherit the property of more than 1 parent class than it is known as multilevel inheritance
+
+###4. hyrarichal
+
+When one class serve as parent class for more than 1 class.
+
+### 5. hybrid
+
+it is combination of more than 1 type of inheritance
+
+  Inheritance Ambiguity
+
+  when child class call the data mamber/function having same name present in more than one parent class than compiler get confuse to choose which class function, this is known as Inheritance Ambiguity.
+
+  it occur in Multiple inheritance
+  -- Reason is clear in Defination
+
+  How to get rid of Ambiguity
+  Using Scope Resolotion Operator ```::```
+  Syntax 
+  ```childclassName objectname.parentClassName::function_name(which is Ambigious)```
+  eg
+ ```child ch.Mother::Info()```
+
+  How Scope resolution Operator help to get rid of Ambiguity
 
 
-3. multiple
-4. hyrarichal
-5. hybrid
+
+
+Why we need 5 types of Inheritance? What is the Reason?
+
 
 
 ## Mode of Inheritance in C++
