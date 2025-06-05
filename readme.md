@@ -391,3 +391,6 @@ Rules
 
 ## 4. Abstraction
 Hiding the implementation detail and showing only functionality to user is known as Abstraction.
+
+How can we achieve Abstraction
+We can achive Abstraction using Access Modifier.
