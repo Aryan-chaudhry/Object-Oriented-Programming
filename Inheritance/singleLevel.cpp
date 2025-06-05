@@ -9,17 +9,23 @@ class Vehicle{
     }
 };
 
-class Car : public Vehicle{
+class Car : protected Vehicle{
     public:
 
     void Car_Name(){
         cout << "Hi i am Swift Desire" << endl;
     }
+
+    void getInfo(){
+        Info();
+    }
 };
 
 int main(){
     Car obj;
-    obj.Info();
+    obj.getInfo();
     obj.Car_Name();
+
+    
 
 }
