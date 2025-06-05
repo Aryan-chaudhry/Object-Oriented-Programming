@@ -319,6 +319,9 @@ it is combination of more than 1 type of inheritance
 
   How Scope resolution Operator help to get rid of Ambiguity
 
+  Scope resolution Operator help to get rid from ambiguity by explicitly specify the scope of class from which we access the function.
+  it explicitly specify which parent class you want to use.
+
 
 
 
@@ -338,5 +341,53 @@ from table we see that private datamember of any class can not be inherited.
 
 
 
-## 3. Abstraction
-## 4. Polymorphism
+## 3. Polymorphism
+when things exist in multiple form this concept is known as polymorphism
+it is of 2 types
+1. Compile time Polymorphism, Static Polymorphism
+2. Run time Polymorphism, Dynamic Polymorphism
+
+### 1. Compile time Polymorphism
+it is also known as early Binding or static Polymorphism. In Compile time polymorphism we know that which things exist in which form during compile time, before the run time.
+
+if have 2 type
+#### Function Overloading
+When a 2 or more Function having same Name but different Parameter, this is known as Function Overloading
+
+#### Operator Overloading
+the ability to provide the operators with a special meaning for particular data type, this ability is known as operator overloading.
+
+Operator Overloading
+
+Suntax ```return_type operator (operator_name) (input)```
+in input we usually consider second operand.
+
+Operator that cannot be overloaded
+
+| Operator   | Name/Description                          | Reason Why It Can't Be Overloaded                    |
+|------------|--------------------------------------------|------------------------------------------------------|
+| `::`       | Scope resolution operator                  | Compiler-resolved at compile time                   |
+| `.`        | Member access (dot operator)               | Used to directly access members, cannot be redefined|
+| `.*`       | Pointer-to-member access                   | Similar to `.`, tightly bound to member access rules|
+| `sizeof`   | Size-of operator                           | Evaluated at compile time                           |
+| `typeid`   | Type identification operator               | Requires compile-time type info                     |
+| `?:`       | Ternary conditional operator               | Built-in conditional syntax, not overloadable       |
+| `alignof`  | Alignment requirement operator             | Evaluated at compile time                           |
+| `noexcept` | Exception specification check              | Compiler-evaluated, not a runtime operator          |
+| `co_await` | Coroutine operator (since C++20)           | Special coroutine keyword, not an operator per se   |
+
+### 2. Run time Polymorphism
+it is also known as Dynamic Polymorphism, Run-time polymorphism means the program decides which function to use while it’s running, based on the actual object.
+
+it is of 1 type
+#### 1. Method Overriding/ Function Overiding
+When a function have a same name and same parameter present in more than class, this is known as Method Over riding
+
+Rules
+1. The method pf parent class and the method of the child class must have the same name
+2. the method of the parent class and the method of the child class have the same parameters
+3. it is possible through inheritance Only.
+
+
+## 4. Abstraction
+Hiding the implementation detail and showing only functionality to user is known as Abstraction.
