@@ -275,7 +275,7 @@ it does not have this keyword, static function can access only static members
 
 # 4 pillars of OOPS
 
-1. Encapsulation
+## 1. Encapsulation
 
 
 Rapping up data members and function in single unit is known as Encapsulation.
@@ -296,7 +296,7 @@ Why we are doing Encapsulation?
 
 4. Unit code is better for unit testing
 
-2. Inheritance
+## 2. Inheritance
 
 When a class inherit the properties on another class this concept is known as inheritance
 
@@ -328,5 +328,5 @@ from table we see that private datamember of any class can not be inherited.
 
 
 
-3. Abstraction
-4. Polymorphism
+## 3. Abstraction
+## 4. Polymorphism
