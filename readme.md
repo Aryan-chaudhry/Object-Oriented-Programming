@@ -1,238 +1,366 @@
 # Object-Oriented Programming (OOP)
 
+---
+
 ## Object
 
-An **object** is an entity that has both state (properties) and behavior (methods). An object is an instance of a class.
+An **object** is an instance of a class. It has:
+- **State** (data/properties/attributes)
+- **Behavior** (methods/functions)
 
-- If we create an object using **static allocation**, we use the `.` operator to access its members.
-- If we create an object using **dynamic allocation**, we use:
-  1. `*` (dereference operator)
-  2. `->` (arrow operator)
+**Example:**
+```cpp
+class Car {
+public:
+    string color;
+    void drive() { cout << "Driving..." << endl; }
+};
 
-### What Happens When We Create an Object?
-
-Whenever we create an object, the **constructor** is called automatically, e.g., `ramesh.Hero()`. By default, a constructor with the same name as the class (default constructor) is created.
-
-### Constructor
-
-- Invoked at the time of object creation.
-- Has no return type.
-- Has the same name as the class.
-
-#### Types of Constructors
-
-1. **Default Constructor**  
-   A constructor with no arguments.  
-   **Syntax:**  
-   ```cpp
-   classname() {}
-   ```
-
-2. **Parameterized Constructor**  
-   A constructor where we pass arguments.  
-   **Syntax:**  
-   ```cpp
-   classname(datatype p1, datatype p2, ...) {}
-   ```
-
-   **Example:**
-   ```cpp
-   int health;
-
-   classname(int health) {
-       health = health; // Incorrect: assigns parameter to itself
-   }
-   ```
-   To assign the parameter to the class member, use the `this` keyword:
-   ```cpp
-   int health;
-
-   classname(int health) {
-       this->health = health; // Correct
-   }
-   ```
-
-3. **Copy Constructor**  
-   Used to create a new object as a copy of an existing object.  
-   By default, a shallow copy constructor is generated automatically.
-
-   **Example:**
-   ```cpp
-   class Hero {
-   public:
-       Hero(Hero& temp) {
-           this->health = temp.health;
-           this->level = temp.level;
-       }
-   };
-
-   int main() {
-       Hero R(ramesh);
-   }
-   ```
-   - Always pass by reference (`Hero& temp`) to avoid infinite recursion.
-
-### Shallow vs. Deep Copy
-
-- **Shallow Copy:** Copies the object but shares the same memory.
-- **Deep Copy:** Copies the object and allocates separate memory.
-
-### Destructor
-
-- Automatically created when a class is defined.
-- Same name as the class, prefixed with `~`.
-- No parameters, no return type.
-- Called automatically for statically created objects.
-- For dynamically created objects, must be called manually.
+int main() {
+    Car myCar;
+    myCar.color = "Red";
+    myCar.drive();
+}
+```
 
 ---
 
 ## Class
 
-A **class** is a user-defined data type.  
-Properties of a class can be accessed using the `.` operator.
+A **class** is a user-defined data type that acts as a blueprint for objects.
 
-### Class Size
+**Example:**
+```cpp
+class Student {
+public:
+    string name;
+    int age;
+    void introduce() { cout << "Hi, I'm " << name << endl; }
+};
+```
 
-- The size of a class object is the sum of the sizes of its members, plus any padding added for alignment.
-- If a class has no properties, it still occupies 1 byte in memory.
+---
 
-### Padding and Greedy Alignment
+## Constructor
 
-- **Padding:** Extra memory bytes added by the compiler between data members to satisfy alignment constraints.
-- **Greedy Alignment:** Arranging members from largest to smallest data types to minimize padding.
+A **constructor** is a special function called automatically when an object is created. It has the same name as the class and no return type.
 
-**Best Practices:**
-- Let the compiler manage padding unless working in low-level programming.
-- Use greedy alignment for performance-sensitive structures.
+### Types of Constructors
+
+1. **Default Constructor**
+    ```cpp
+    class A {
+    public:
+        A() { cout << "Default Constructor" << endl; }
+    };
+    ```
+
+2. **Parameterized Constructor**
+    ```cpp
+    class B {
+    public:
+        int x;
+        B(int val) { x = val; }
+    };
+    ```
+
+3. **Copy Constructor**
+    ```cpp
+    class C {
+    public:
+        int x;
+        C(int val) { x = val; }
+        C(const C& obj) { x = obj.x; }
+    };
+    ```
+
+**Example:**
+```cpp
+C obj1(10);
+C obj2 = obj1; // Copy constructor called
+```
+
+---
+
+## Destructor
+
+A **destructor** is called automatically when an object goes out of scope or is deleted. It has the same name as the class, prefixed with `~`, and no return type or parameters.
+
+**Example:**
+```cpp
+class D {
+public:
+    ~D() { cout << "Destructor called" << endl; }
+};
+```
 
 ---
 
 ## Access Modifiers
 
-Access modifiers define the accessibility of class members:
+- **public**: Accessible from anywhere.
+- **private**: Accessible only within the class.
+- **protected**: Accessible within the class and its derived classes.
 
-1. **public**: Accessible from anywhere.
-2. **private**: Accessible only within the class.
-3. **protected**: Accessible within the class and its derived classes.
-
-> **Note:** If no access modifier is specified, members are `private` by default.
-
-### Getter/Setter
-
-Private members can be accessed using public getter and setter functions.
-
----
-
-## Copy Assignment Operator
-
-The copy assignment operator (`=`) is used to assign the value of one object to another.
+**Example:**
+```cpp
+class Example {
+private:
+    int secret;
+public:
+    int open;
+protected:
+    int semiSecret;
+};
+```
 
 ---
 
-## Important Concepts
+## Getter and Setter
 
-### `const` Keyword
+Used to access and modify private data members.
 
-- Used to declare constants and prevent modification.
-- Must be initialized at the time of declaration.
-
-### Const Function
-
-A member function that does not modify any member variables.
-
-### Initialization List
-
-Used to initialize member variables before the constructor body executes.
+**Example:**
+```cpp
+class Person {
+private:
+    int age;
+public:
+    void setAge(int a) { age = a; }
+    int getAge() { return age; }
+};
+```
 
 ---
 
 ## Static Keyword
 
-- **Static Data Members:** Belong to the class, not to any object. Must be initialized outside the class.
-  ```cpp
-  datatype classname::fieldname = value;
-  ```
-- **Static Functions:** Can access only static members. Do not have a `this` pointer.
+- **Static Data Members:** Shared by all objects of the class.
+- **Static Member Functions:** Can access only static data members.
+
+**Example:**
+```cpp
+class Counter {
+public:
+    static int count;
+    Counter() { count++; }
+    static int getCount() { return count; }
+};
+int Counter::count = 0;
+```
+
+---
+
+## Const Keyword
+
+- **const variable:** Value cannot be changed after initialization.
+- **const function:** Cannot modify any member variables.
+
+**Example:**
+```cpp
+class Demo {
+public:
+    int x;
+    void show() const {
+        // x++; // Error
+        cout << x << endl;
+    }
+};
+```
+
+---
+
+## Initialization List
+
+Used to initialize data members before constructor body executes.
+
+**Example:**
+```cpp
+class Point {
+    int x, y;
+public:
+    Point(int a, int b) : x(a), y(b) {}
+};
+```
 
 ---
 
 # Four Pillars of OOP
 
+---
+
 ## 1. Encapsulation
 
-Encapsulation is the process of wrapping data members and functions into a single unit (class).  
-It is also known as information/data hiding.
-
-**Fully Encapsulated Class:** All data members are marked private.
+Encapsulation is the process of wrapping data and functions into a single unit (class), restricting direct access to some of the object's components.
 
 **Benefits:**
-1. Increases security by hiding data.
-2. Allows making classes read-only (using getters).
-3. Promotes code reusability.
-4. Facilitates unit testing.
+- Data hiding
+- Increased security
+- Code modularity
+
+**Example:**  
+See [`Encapsulation.cpp`](Encapsulation.cpp)
 
 ---
 
 ## 2. Inheritance
 
-Inheritance allows a class to acquire properties and behaviors of another class.
+Inheritance allows a class (derived/child) to acquire properties and behaviors of another class (base/parent).
 
 **Types of Inheritance:**
-1. **Single Level:** Child class inherits from one parent class.
-2. **Multilevel:** Child class inherits from a parent class, which itself is a child of another class.
-3. **Multiple:** Child class inherits from more than one parent class.
-4. **Hierarchical:** One class serves as a parent for multiple child classes.
-5. **Hybrid:** Combination of more than one type of inheritance.
+- **Single Level:** One base, one derived
+- **Multilevel:** Derived from a derived
+- **Multiple:** Multiple bases, one derived
+- **Hierarchical:** One base, multiple derived
+- **Hybrid:** Combination
 
-**Inheritance Ambiguity:**  
-Occurs when a child class inherits members with the same name from multiple parent classes.  
-**Solution:** Use the scope resolution operator `::` to specify which class's member to access.
+**Example Files:**
+- Single Level: [`Inheritance/singleLevel.cpp`](Inheritance/singleLevel.cpp)
+- Multilevel: [`Inheritance/Multilevel.cpp`](Inheritance/Multilevel.cpp)
+- Multiple: [`Inheritance/Multiple.cpp`](Inheritance/Multiple.cpp)
+- Hierarchical: [`Inheritance/hyrarichal.cpp`](Inheritance/hyrarichal.cpp)
+- Hybrid: [`Inheritance/hybrid.cpp`](Inheritance/hybrid.cpp)
+
+**Ambiguity Solution:** Use scope resolution operator `::`.
+
+**Example:**
 ```cpp
 childObject.ParentClassName::function_name();
 ```
-
-**Modes of Inheritance in C++:**
-
-| Inheritance Type        | Syntax                                | Access Level in Derived Class                           | Description                                                                 |
-|------------------------|---------------------------------------|---------------------------------------------------------|-----------------------------------------------------------------------------|
-| Public Inheritance     | `class Derived : public Base`         | Public → Public<br>Protected → Protected<br>Private → Not Inherited | Represents an "is-a" relationship. Most common.                             |
-| Protected Inheritance  | `class Derived : protected Base`      | Public → Protected<br>Protected → Protected<br>Private → Not Inherited | Used for internal implementation.                                           |
-| Private Inheritance    | `class Derived : private Base`        | Public → Private<br>Protected → Private<br>Private → Not Inherited | Strong encapsulation. Inherited members not accessible outside.             |
-
-> **Note:** Private data members of any class cannot be inherited.
 
 ---
 
 ## 3. Polymorphism
 
-Polymorphism means "many forms."  
-It is of two types:
+Polymorphism means "many forms". It allows functions or methods to behave differently based on the object or data type.
 
-1. **Compile-Time Polymorphism (Static/Early Binding)**
-   - **Function Overloading:** Multiple functions with the same name but different parameters.
-   - **Operator Overloading:** Giving special meaning to operators for user-defined types.
-     - **Syntax:**  
-       ```cpp
-       return_type operator operator_symbol (input)
-       ```
-     - **Operators that cannot be overloaded:** `::`, `.`, `.*`, `sizeof`, `typeid`, `?:`, `alignof`, `noexcept`, `co_await`
+### Types:
 
-2. **Run-Time Polymorphism (Dynamic/Late Binding)**
-   - **Method Overriding:** Functions with the same name and parameters in parent and child classes, achieved through inheritance.
+#### a. Compile-Time Polymorphism (Static/Early Binding)
+- **Function Overloading:** Same function name, different parameters.
+- **Operator Overloading:** Redefining operators for user-defined types.
 
-   **Rules for Method Overriding:**
-   1. The method in the parent and child class must have the same name.
-   2. The method in the parent and child class must have the same parameters.
-   3. Possible only through inheritance.
+**Examples:**
+- [`Polymorphism/CompileTime/FunctionOverloading.cpp`](Polymorphism/CompileTime/FunctionOverloading.cpp)
+- [`Polymorphism/CompileTime/OperatorOverloading.cpp`](Polymorphism/CompileTime/OperatorOverloading.cpp)
+
+#### b. Run-Time Polymorphism (Dynamic/Late Binding)
+- **Function Overriding:** Same function name and parameters in base and derived class, achieved via inheritance and virtual functions.
+
+**Rules:**
+1. Same name in parent and child.
+2. Same parameters.
+3. Achieved through inheritance.
+
+**Example:**
+- [`Polymorphism/RunTime/FunctionOverRiding.cpp`](Polymorphism/RunTime/FunctionOverRiding.cpp)
 
 ---
 
 ## 4. Abstraction
 
-Abstraction means hiding implementation details and showing only the functionality to the user.
+Abstraction means hiding implementation details and showing only the essential features.
 
-**How to Achieve Abstraction:**
-- Using access modifiers to restrict access to certain details.
+**How to Achieve:**
+- Using access modifiers (private/protected)
+- Using abstract classes and pure virtual functions
+
+**Example:**  
+See [`Abstraction.cpp`](Abstraction.cpp)
 
 ---
+
+# Storage Classes in C/C++
+
+A **storage class** defines the scope, lifetime, and linkage of variables/functions.
+
+## Types of Storage Classes
+
+### 1. `auto`
+- Default for local variables.
+- Scope: Local to block.
+- Lifetime: Created and destroyed with block.
+- Linkage: None.
+
+**Example:**  
+See [`Storage class/auto_storage_class.cpp`](Storage class/auto_storage_class.cpp)
+
+---
+
+### 2. `register`
+- Suggests storing variable in CPU register.
+- Scope: Local to block.
+- Lifetime: Created and destroyed with block.
+- Linkage: None.
+- Cannot take address with `&`.
+
+**Example:**  
+See [`Storage class/register_storage_class.cpp`](Storage class/register_storage_class.cpp)
+
+---
+
+### 3. `static`
+- Retains value between function calls.
+- Scope: Local to block or file.
+- Lifetime: Entire program.
+- Linkage: Internal (if global).
+
+**Example:**  
+See [`Storage class/static_storage_class.cpp`](Storage class/static_storage_class.cpp)
+
+---
+
+### 4. `extern`
+- Used to declare a global variable or function defined in another file.
+- Scope: Global.
+- Lifetime: Entire program.
+- Linkage: External.
+
+**Example:**  
+See [`Storage class/extern_storage_class.cpp`](Storage class/extern_storage_class.cpp)
+
+---
+
+### 5. `mutable` (C++ only)
+- Allows a class member to be modified even if the object is `const`.
+- Scope: Class member.
+- Lifetime: As per object.
+
+**Example:**  
+See [`Storage class/mutable_storage_class.cpp`](Storage class/mutable_storage_class.cpp)
+
+---
+
+## Storage Class Summary Table
+
+| Storage Class | Scope         | Lifetime           | Linkage   | Usage Example                  |
+|---------------|--------------|--------------------|-----------|-------------------------------|
+| auto          | Local        | Block              | None      | `auto int x = 5;`             |
+| register      | Local        | Block              | None      | `register int y = 10;`        |
+| static        | Local/Global | Entire Program     | Internal  | `static int z = 0;`           |
+| extern        | Global       | Entire Program     | External  | `extern int w;`               |
+| mutable       | Class Member | As per object      | As object | `mutable int data;`           |
+
+---
+
+# Additional OOP Concepts
+
+## Shallow vs Deep Copy
+
+- **Shallow Copy:** Copies values, but pointers still point to the same memory.
+- **Deep Copy:** Copies values and allocates new memory for pointers.
+
+## Padding and Alignment
+
+- **Padding:** Extra bytes added for alignment.
+- **Greedy Alignment:** Arrange members from largest to smallest to minimize padding.
+
+## Best Practices
+
+- Use encapsulation to protect data.
+- Prefer composition over inheritance when possible.
+- Use virtual destructors in base classes when using polymorphism.
+
+---
+
+This document covers all major OOP concepts, C++ syntax, and storage classes with examples and references to code files in this workspace.
