@@ -39,13 +39,15 @@ This is a special pointer in c++ that points the current object
 
 Constructor is a special method which invoke automatically at time of object creation. is is used to initialization
 
-it have same name as class
+#### properties 
 
-constructor doesn;t have a return type
+#### 1. it have same name as class
 
-only called once (automatically), at object creation
+#### 2. constructor doesn;t have a return type
 
-Memmory allocation happen when constructor is called
+#### 3. only called once (automatically), at object creation
+
+#### 4. Memmory allocation happen when constructor is called
 
 Constructor are of three type
 
