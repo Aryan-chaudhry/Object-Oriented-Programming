@@ -63,7 +63,44 @@ This Constructor contain parameters
 
 it is a special type of constructor (default) used to copy properties of one object into another
 
-# S hallow copy & Deep Copy
+this is always shallow copy
+
+# Shallow copy
+
+A shallow copy of an object copies all member values from one object to another
+
+it have same memmory reference
+
+# Deep copy
+
+A deep copy not only copies the member values bit also make copies of any dynamic allocated memory that the member point to.
+
+it have new memmory allocated
+
+# Destructor
+
+Destructor is a special member function of a class that is executed automatically when an object go out of scope or deleted. it main purpose is to release resource that object require during its life time 
+
+destructor can only deallocated statically allocated memory data member or  memebr function
+
+### Then how to delete the object which use heap memmory
+
+use delete 
+
+### what if we dont delete
+
+it cause memmory leak
+
+#### --> Memmory leak happen when program allocate memmory using heap but forget or fail to deallocate it
+
+#### --> as a result
+
+#### --> That memmory stay reserverd and cannnot reused by the program 
+
+#### --> Overtime, this caise the program to consume more and more memmory, which can slow down or crash the system```
+
+``` ~ClassName(){} ```
+
 
 # OOPS Has 4 major pillars
 
