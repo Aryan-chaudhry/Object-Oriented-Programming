@@ -117,3 +117,45 @@ it cause memmory leak
 Encapsulation is wrapping of data and memebr function in a single unit called class
 
 it help us in data hiding by using private access modifier
+
+# Inheritance
+
+When a properties & member function of base class are passed on to the derived class it is known as inheritance
+
+it is used for code reusability
+
+### Modes of inheritance
+![Mode of inheritance](image.png)
+
+### Type of inheritance
+
+#### 1. Single Inheritance
+
+Single Inheritance means one base class and one derived class(derived class mean when that class inherit the properties and function of it base class)
+
+#### 2. Multilevel Inheritance
+
+Multilevel inheritance is a type of inheritance in c++ where class derived class inherit the properties of base class who also act like a base class for another class and like forming a chain of inheritance
+
+#### 3. Multiple Inheritance
+
+When a class is derived from more than one parent class it is called multiple inheritance
+
+in Multiple inheritance Ambiguity occurs
+
+##### Ambiguity is a state where compiler get confuse to choose which method who is present in more than one base class
+
+##### How to handle 
+
+it can me handled by scope resolution operator ```::```
+
+```object.parentclassname::method```
+
+
+#### 4. Hierarchial Inheritance
+
+When more than one class inherit the property of same base class it is known as Hierarchial Inheritance
+
+#### 5. Hybrid Inheritance
+
+Hybrid inheritance is the combination of different type of inheritance
