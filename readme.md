@@ -192,3 +192,56 @@ operator that cannnot be overloaded
 #### 2. Run time polymorphism
 
 it is also called dynamic binding. In run time polymorphism parent class and child class both contain the same function with different implementation. The parent class function is said to be overridden
+
+##### type of run time pime polymorphism
+
+1. function overriding
+
+when a function with same name also present in deriend class it override the method/property of base class
+
+2. virtual function
+
+A virtual function is a member function that you expect to be redefined in derived class
+
+##### Properties of virtual function
+
+1. Virtual function is dynamic in nature
+
+2. Define by the keyword "virtual" inside a base class and are always declared within the base class and overridden in a child class
+
+*virtual keyword* The virtual keyword in C++ is used to tell the compiler that a function can be overridden in derived classes and should support runtime polymorphism
+
+# Abstraction
+
+Hiding the implementation and unnecessary detail and showing only functionality to user is known as abstraction
+
+best way to implment it is access modifiers
+
+Abstraction can done by Absract class
+
+*Abstract class* 
+
+An abstract class is a class in C++ that serves as a blueprint for other classes and cannot be instantiated. It contains at least one pure virtual function, enforcing derived classes to implement specific behavior.
+
+    a class which contain pure virtual function automatically become abstract class
+
+##### pure virtial function
+
+A pure virtual function in C++ is a virtual function that does not have an implementation in the base class and must be overridden in derived classes.
+
+
+![alt text](image-1.png)
+
+# Static keyword
+
+it can be used as
+
+1. static Variables
+
+Variable declared as astatic in a function are created and initialised once for the lifetime of the program. (in a function)
+
+
+2. static Objects
+
+Static variable in a class are created and initialized once. They are shard by all object of the class (in a class)
+
