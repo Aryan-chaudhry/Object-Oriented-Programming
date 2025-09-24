@@ -159,3 +159,36 @@ When more than one class inherit the property of same base class it is known as 
 #### 5. Hybrid Inheritance
 
 Hybrid inheritance is the combination of different type of inheritance
+
+# Polymorphism
+
+Polymorphism is the ability of object, function or operator to take on mutiple forms
+
+example Constructor Overloading
+
+### Types of polymorphism
+
+#### 1. Compile time polymorphism
+
+*CompileTime Polymorphism* which is also known as statuc binding is a type of polymorphism in which the method or function call is resolve at aompile time
+
+##### Type of compiletime polymorphism
+
+1. Function Overloading
+
+Function overloading is an exmaple or implementation of compile time polymorphism. it is basically when we have more than one function present in a same class with same name or same return type but diff parameters.
+
+2. Operator Overloading
+
+Operator overloading in c++ is a feature that allow us to redefine the behaviour of existing operator like(+, -, *, /, ==)
+
+syntax
+``` classname operator operator_name (list)```
+
+operator that cannnot be overloaded
+
+``` ::, ., sizeof ``` and many more
+
+#### 2. Run time polymorphism
+
+it is also called dynamic binding. In run time polymorphism parent class and child class both contain the same function with different implementation. The parent class function is said to be overridden
